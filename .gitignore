@@ -1,3 +1,5 @@
+.idea/
+output.xml
 vendor/*
 tests/tmp/*
 tests/**/output/*

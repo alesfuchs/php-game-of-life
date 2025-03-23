@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www:delegated
+      - vendor:/var/www/vendor
+      - bash_history:/home/appuser
+    working_dir: /var/www
+    user: appuser
+    command: sh -c "composer install && HISTFILE=/home/appuser/.bash_history HISTSIZE=1000 HISTFILESIZE=2000 bash"
+
+volumes:
+  vendor:
+  bash_history: 
